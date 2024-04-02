@@ -134,18 +134,13 @@ Table 1 presents the results from a linear regression analysis using the `lm` fu
 
 Here's a breakdown of the results:
 
-**Intercept**: The estimated intercept is 55,029 with a standard error of 19,382, meaning when the Number of Business Bankruptcies is zero, the Food Bank Usage is expected to be around 55,029. The t-value is 2.839, and it is statistically significant at the 0.01 level (p-value = 0.005938).
+**Intercept**: The estimated intercept is 55029.035 with a standard error of 19382.346, meaning when the Number of Business Bankruptcies is zero, the Food Bank Usage is expected to be around 55029.305. The t-value is 2.839146, and it is statistically significant at the 0.01 level (p-value = 0.0059377190).
 
-**Value.y**: The coefficient for the Number of Business Bankruptcies is 4,513, with a standard error of 1,180. This suggests that for each additional business bankruptcy, there is an average increase of about 4,513 in the Food Bank Usage. This coefficient is statistically significant at the 0.001 level (p-value = 0.000283).
+**Value.y**: The coefficient for the Number of Business Bankruptcies is 4513.056, with a standard error of 1179.787. This suggests that for each additional business bankruptcy, there is an average increase of about 4513.056 in the Food Bank Usage. This coefficient is statistically significant at the 0.001 level (p-value = 0.0002834629).
 
-**Residuals**: The residuals show the difference between the observed Food Bank Usage values and those predicted by the model, ranging from a minimum of -99,698 to a maximum of 174,691.
+It indicates that for every additional business bankruptcy in Toronto, food bank usage increases by an average of 4,513, with the model accounting for approximately 17.5% of the variability in food bank usage. The significant p-values for both the intercept and the slope (p < 0.01 and p < 0.001, respectively) confirm the statistical significance of these results. The intercept value of 55,029 suggests the baseline food bank usage when no bankruptcies occur. While the relationship between business bankruptcies and food bank usage is statistically significant, the R-squared value suggests that other unexamined factors may also play a significant role in determining food bank usage.
 
-**R-squared**: The R-squared value of 0.175 indicates that approximately 17.5% of the variability in Food Bank Usage is explained by the model. The Adjusted R-squared, which adjusts for the number of predictors in the model, is slightly lower at 0.163, suggesting that when accounting for the number of variables, the model explains about 16.3% of the variance.
-
-**F-statistic**: The F-statistic is 14.63 with a p-value of 0.0002835, indicating that the model as a whole is statistically significant and that there is a relationship between the variables.
-
-It indicate that for every additional business bankruptcy in Toronto, food bank usage increases by an average of 4,513, with the model accounting for approximately 17.5% of the variability in food bank usage. The significant p-values for both the intercept and the slope (p < 0.01 and p < 0.001, respectively) confirm the statistical significance of these results. The intercept value of 55,029 suggests the baseline food bank usage when no bankruptcies occur. While the relationship between business bankruptcies and food bank usage is statistically significant, the R-squared value suggests that other unexamined factors may also play a significant role in determining food bank usage.
-
+\pagebreak
 # Model
 ## Model Setup
 $$
