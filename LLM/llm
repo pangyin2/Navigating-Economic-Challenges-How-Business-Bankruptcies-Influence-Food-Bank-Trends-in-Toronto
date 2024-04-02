@@ -1,0 +1,49 @@
+# For the enhancement part, ChatGPT as a helper to give some hints:
+how to create an API to the linear model in r code?
+ChatGPT
+To create an API for a linear model in R, you can use the plumber package. This package allows you to create REST APIs in R easily. Below is an example of how to create an API for a simple linear model:
+
+# Install and load required packages
+install.packages("plumber")
+library(plumber)
+
+# Load necessary libraries
+library(stats)  # for lm function
+
+# Define your linear model
+model <- lm(mpg ~ cyl + hp + wt, data = mtcars)
+
+# Define a function to make predictions
+predict_mpg <- function(cyl, hp, wt) {
+  new_data <- data.frame(cyl = as.numeric(cyl), hp = as.numeric(hp), wt = as.numeric(wt))
+  prediction <- predict(model, newdata = new_data)
+  return(prediction)
+}
+
+# Create a plumber API
+# Define the plumber router
+#* @param cyl Number of cylinders
+#* @param hp Horsepower
+#* @param wt Weight
+#* @post /predict
+function(req, res) {
+  # Get parameters from request
+  params <- req$postParams
+  cyl <- as.numeric(params[["cyl"]])
+  hp <- as.numeric(params[["hp"]])
+  wt <- as.numeric(params[["wt"]])
+  
+  # Make prediction
+  prediction <- predict_mpg(cyl, hp, wt)
+  
+  # Return prediction as JSON
+  res$body <- toJSON(list(prediction = prediction))
+  res$status <- 200
+}
+
+# Run the API
+plumber::plumb("path_to_your_script.R")$run(port=8000)
+
+Replace "path_to_your_script.R" with the path to your script. Then you can run this script. This will start a local web server listening on port 8000. You can then send POST requests to http://localhost:8000/predict with parameters cyl, hp, and wt, and it will return the prediction made by the linear model.
+
+You can send requests to this API using various tools like cURL, Postman, or by writing code in your preferred programming language (e.g., Python, R, etc.).
